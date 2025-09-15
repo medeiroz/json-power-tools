@@ -3,9 +3,8 @@
 <div align="center">
 
 [![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-blue)](https://marketplace.visualstudio.com/items?itemName=medeiroz.json-power-tools)
-[![Version](https://img.shields.io/badge/version-0.0.1-green.svg)](https://github.com/medeiroz/json-power-tools)
-[![Downloads](https://img.shields.io/badge/downloads-0-brightgreen.svg)](https://marketplace.visualstudio.com/items?itemName=medeiroz.json-power-tools)
-[![Rating](https://img.shields.io/badge/rating-★★★★★-yellow.svg)](https://marketplace.visualstudio.com/items?itemName=medeiroz.json-power-tools)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/medeiroz.json-power-tools)](https://marketplace.visualstudio.com/items?itemName=medeiroz.json-power-tools)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/medeiroz.json-power-tools)](https://marketplace.visualstudio.com/items?itemName=medeiroz.json-power-tools)
 
 **Transform your JSON workflow with intelligent formatting and powerful automation tools**
 
