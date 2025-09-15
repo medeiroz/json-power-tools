@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#007ACC" stroke="#005a9e" stroke-width="4" />
+
+  <!-- JSON brackets -->
+  <text x="24" y="80" font-family="monospace" font-size="48" font-weight="bold" fill="white">{</text>
+  <text x="88" y="80" font-family="monospace" font-size="48" font-weight="bold" fill="white">}</text>
+
+  <!-- Power/gear icon in center -->
+  <circle cx="64" cy="64" r="16" fill="none" stroke="white" stroke-width="3" />
+  <circle cx="64" cy="64" r="6" fill="white" />
+
+  <!-- Gear teeth -->
+  <rect x="62" y="36" width="4" height="12" fill="white" />
+  <rect x="62" y="80" width="4" height="12" fill="white" />
+  <rect x="36" y="62" width="12" height="4" fill="white" />
+  <rect x="80" y="62" width="12" height="4" fill="white" />
+
+  <!-- Diagonal teeth -->
+  <rect x="45" y="45" width="8" height="3" fill="white" transform="rotate(45 49 46.5)" />
+  <rect x="75" y="45" width="8" height="3" fill="white" transform="rotate(-45 79 46.5)" />
+  <rect x="45" y="80" width="8" height="3" fill="white" transform="rotate(-45 49 81.5)" />
+  <rect x="75" y="80" width="8" height="3" fill="white" transform="rotate(45 79 81.5)" />
+</svg>

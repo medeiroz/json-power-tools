@@ -1,0 +1,181 @@
+{
+  "name": "json-power-tools",
+  "displayName": "JSON Power Tools",
+  "description": "Advanced JSON formatting with smart string-to-object conversion, bulk folder processing, and configurable indentation. Perfect for normalizing large sets of JSON files.",
+  "version": "0.0.2",
+  "publisher": "medeiroz",
+  "license": "MIT",
+  "icon": "images/json-power-tools.jpg",
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "json",
+    "formatter",
+    "format",
+    "beautify",
+    "indent",
+    "bulk",
+    "folder",
+    "nested",
+    "string-to-object",
+    "parser",
+    "prettify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/medeiroz/json-power-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/medeiroz/json-power-tools/issues"
+  },
+  "homepage": "https://github.com/medeiroz/json-power-tools#readme",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "test:unit": "vscode-test --testFilesGlob='test/unit/*.test.js'",
+    "test:integration": "vscode-test --testFilesGlob='test/integration/*.test.js'",
+    "test:performance": "vscode-test --testFilesGlob='test/performance/*.test.js'"
+  },
+  "activationEvents": [
+    "onLanguage:json",
+    "onLanguage:jsonc"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "json-power-tools.formatCurrentJson",
+        "title": "JSON Power Tools: Format Current JSON File"
+      },
+      {
+        "command": "json-power-tools.formatSingleJsonFile",
+        "title": "JSON Power Tools: Format JSON File"
+      },
+      {
+        "command": "json-power-tools.formatJsonFolder",
+        "title": "JSON Power Tools: Format All JSON Files in Folder"
+      },
+      {
+        "command": "json-power-tools.openSettings",
+        "title": "JSON Power Tools: Open Settings"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorLangId == json",
+          "command": "json-power-tools.formatCurrentJson",
+          "group": "1_modification"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .json",
+          "command": "json-power-tools.formatSingleJsonFile",
+          "group": "7_modification"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "json-power-tools.formatJsonFolder",
+          "group": "7_modification"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "JSON Power Tools",
+      "properties": {
+        "json-power-tools.maxDepth": {
+          "type": "number",
+          "default": 256,
+          "minimum": 1,
+          "maximum": 1000,
+          "description": "Maximum depth to search for JSON files in nested folders. Higher values may impact performance."
+        },
+        "json-power-tools.indentation.type": {
+          "type": "string",
+          "enum": [
+            "spaces",
+            "tabs"
+          ],
+          "default": "spaces",
+          "description": "Type of indentation to use when formatting JSON files."
+        },
+        "json-power-tools.indentation.size": {
+          "type": "number",
+          "default": 2,
+          "minimum": 1,
+          "maximum": 8,
+          "description": "Number of spaces per indentation level (when using spaces) or tab width display (when using tabs)."
+        },
+        "json-power-tools.ignoredFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "node_modules",
+            "vendor",
+            "composer",
+            "packages",
+            "bin",
+            "obj",
+            "build",
+            "dist",
+            "out",
+            "target",
+            "cache",
+            "tmp",
+            "temp",
+            "__pycache__",
+            ".pytest_cache",
+            ".mypy_cache",
+            ".git",
+            ".svn",
+            ".hg",
+            ".bzr",
+            ".vscode",
+            ".vs",
+            ".idea",
+            "lib",
+            "libs",
+            "dlls",
+            "deps",
+            "dependencies",
+            "third_party",
+            "external",
+            "externals",
+            "logs",
+            "log",
+            "coverage",
+            "htmlcov"
+          ],
+          "description": "List of folder names to ignore when searching for JSON files. These folders are typically heavy or contain generated/third-party files."
+        },
+        "json-power-tools.allowedExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".json"
+          ],
+          "description": "List of file extensions that are allowed for formatting. Include the dot (e.g., '.json', '.jsonc', '.txt'). Only files with these extensions will be processed during folder formatting operations."
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.104.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.34.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
