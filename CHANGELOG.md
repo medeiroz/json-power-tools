@@ -5,8 +5,32 @@ All notable changes to the **JSON Power Tools** extension will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.1] - 2025-09-11
-## [0.0.2] - 2025-09-12 - Add icons and screenshots to README
+## [0.0.4] - 2026-02-12
+
+### Fixed
+- **String Type Preservation**: Fixed bug where string properties containing numbers or booleans were being converted to their primitive types instead of remaining as strings
+- **JSON Parsing Logic**: Improved `parseStringProperties` function to only parse strings that are valid JSON objects or arrays, preserving all other string values exactly as they are
+
+### Example
+```json
+// Before (buggy)
+{
+  "document": 1234567890123,        // incorrectly converted to number
+  "has_identity": true,              // incorrectly converted to boolean
+  "person": { "name": "Flavio" }     // correctly converted to object
+}
+
+// After (fixed)
+{
+  "document": "1234567890123",       // preserved as string
+  "has_identity": "true",            // preserved as string
+  "person": { "name": "Flavio" }     // correctly converted to object
+}
+```
+
+## [0.0.3] - 2025-09-12 - Add icons and screenshots to README
+
+## [0.0.2] - 2025-09-12
 
 ### Added
 - **Smart JSON Processing**: Converts JSON strings within objects to properly nested structures
