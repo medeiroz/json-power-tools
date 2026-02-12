@@ -2,7 +2,7 @@
   "name": "json-power-tools",
   "displayName": "JSON Power Tools",
   "description": "Advanced JSON formatting with smart string-to-object conversion, bulk folder processing, and configurable indentation. Perfect for normalizing large sets of JSON files.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "medeiroz",
   "license": "MIT",
   "icon": "images/json-power-tools.jpg",

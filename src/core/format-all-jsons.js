@@ -133,15 +133,16 @@ function parseStringProperties(obj) {
   } else if (obj && typeof obj === 'object') {
     const newObj = {};
     for (const key in obj) {
-      if (typeof obj[key] === 'string') {
+      const value = obj[key];
+      if (typeof value === 'string' && (value[0] === '{' || value[0] === '[')) {
         try {
-          const parsed = JSON.parse(obj[key]);
-          newObj[key] = parseStringProperties(parsed);
+          const parsed = JSON.parse(value);
+          newObj[key] = typeof parsed === 'object' ? parseStringProperties(parsed) : value;
         } catch {
-          newObj[key] = obj[key];
+          newObj[key] = value;
         }
       } else {
-        newObj[key] = parseStringProperties(obj[key]);
+        newObj[key] = typeof value === 'object' ? parseStringProperties(value) : value;
       }
     }
     return newObj;
